@@ -27,10 +27,7 @@ namespace API.Models
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            /*if (!optionsBuilder.IsConfigured)
-            {
-                optionsBuilder.UseSqlServer("Server=LAPTOP-UMP3I6SV;Database=DB_Sector_Zona;Trusted_Connection=True");
-            }*/
+            
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
