@@ -99,3 +99,33 @@ El resultado enviado por el servidor será el siguiente
 	"result": "Se ha eliminado el registro correctamente"
 }
 ```
+
+### Consulta de personas y sus sueldos por zonas
+Para consultar las personas con sus respectivos sueldos mediante las zonas a las que pertenecen deberá de usar el path:
+```
+	api/persona/consultarPersonaSueldo
+```
+Y agregar este cuerpo a la solicitud HTTP
+```json
+{
+	"codZona": 3
+}
+```
+El resultado enviado por el servidor será el siguiente 
+```json
+{
+	"status": 200,
+	"result": [
+      {
+		"codPersona": 3,
+		"nomPersona": "Guillermo Rivera",
+		"sueldo": 500
+      },
+	  {
+		"codPersona": 4,
+		"nomPersona": "Carlos Alcívar",
+		"sueldo": 560
+	  }
+	]
+}
+```
