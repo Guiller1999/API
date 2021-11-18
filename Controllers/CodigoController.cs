@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/codigo")]
     [ApiController]
     public class CodigoController : ControllerBase
     {
@@ -20,7 +20,7 @@ namespace API.Controllers
             _codigo = cod ?? throw new ArgumentNullException(nameof(cod));
         }
 
-        [HttpGet("codigo")]
+        [HttpGet("consultar")]
         public ActionResult Get()
         {
             

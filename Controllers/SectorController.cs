@@ -10,7 +10,7 @@ using System.Collections;
 
 namespace API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/sector")]
     [ApiController]
     public class SectorController : ControllerBase
     {
@@ -21,7 +21,7 @@ namespace API.Controllers
             _sectorZona = sectorZona?? throw new ArgumentNullException(nameof(sectorZona));
         }
 
-        [HttpGet]
+        [HttpGet("listar")]
         public ActionResult Get()
         {
             /*using (Models.DB_Sector_ZonaContext db = new Models.DB_Sector_ZonaContext())

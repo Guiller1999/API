@@ -12,7 +12,7 @@ using System.Collections;
 namespace API.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("api/persona")]
     public class PersonaController : ControllerBase
     {
         private readonly IPersonaRepositorio _personaRepositorio;

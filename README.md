@@ -21,6 +21,10 @@ A continuación se muestran los diferentes endpoints que existen en la API.
 ## Endpoints
 | Verb | Path | Action|
 |------|------|-------|
+| GET  | api/codigo/consultar | Obtiene el ID siguiente del registro de la persona | 
+| GET  | api/persona/listarPersonas | Obtiene la información de todas las personas registradas |
+| POST | api/persona/crear | Crea un nuevo registro de persona |
+
 
 
 

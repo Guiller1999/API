@@ -10,7 +10,7 @@ using System.Collections;
 
 namespace API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/zona")]
     [ApiController]
     public class ZonaController : ControllerBase
     {
