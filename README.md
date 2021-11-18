@@ -52,7 +52,7 @@ A continuación se muestran los diferentes endpoints que existen en la API.
 	  "result": true
 	}
 	```
-	Donde status hará referencia al estado de la petición HTTP y result traerá el resultado que se espera, en este caso **true que significa
+	Donde status hará referencia al estado de la petición HTTP y result traerá el resultado que se espera, en este caso **true** que significa
 	que las credenciales de usuario son correctas.
 
 
