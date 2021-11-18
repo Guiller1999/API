@@ -33,7 +33,7 @@ A continuación se muestran los diferentes endpoints que existen en la API.
 | GET  | api/zonasector/consultarZonaSector | Obtiene una lista de todos los sectores y el total de sueldos en dicho sector agrupados por zonas | 
 
 ## Ejemplos del uso de la API
-- Para iniciar sesión debe de usar el path
+- Para iniciar sesión debe de usar el path:
 `api/usuario/login`
 
 
