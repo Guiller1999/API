@@ -21,7 +21,7 @@ A continuación se muestran los diferentes endpoints que existen en la API.
 ## Endpoints
 | Verb | Path | Action|
 |------|------|-------|
-| GET  | api/codigo/consultar | Obtiene el ID siguiente del registro de la persona | 
+| GET  | api/codigo/consultar | Obtiene el ID del último registro creado para una persona | 
 | GET  | api/persona/listarPersonas | Obtiene la información de todas las personas registradas |
 | POST | api/persona/crear | Crea un nuevo registro de persona |
 | PUT  | api/persona/actualizar | Actualiza la información de una persona |
@@ -33,28 +33,50 @@ A continuación se muestran los diferentes endpoints que existen en la API.
 | GET  | api/zonasector/consultarZonaSector | Obtiene una lista de todos los sectores y el total de sueldos en dicho sector agrupados por zonas | 
 
 ## Ejemplos del uso de la API
-- Para iniciar sesión debe de usar el path:
+### Validación de inicio de sesión
+Para iniciar sesión debe de usar el path:
 
-	```
-	api/usuario/login
-	```
-	Y agregar este cuerpo a la soilictud HTTP
-	```json
+```
+    api/usuario/login
+```
+Y agregar este cuerpo a la solicitud HTTP
+```json
 	{
 	  "nomUsuario": "admin",
 	  "password": "123"
 	}
-	```
-	El resultado enviado por el servidor será el siguiente 
-	```json
+```
+El resultado enviado por el servidor será el siguiente 
+```json
 	{
       "status": 200,
 	  "result": true
 	}
-	```
-	Donde status hará referencia al estado de la petición HTTP y result traerá el resultado que se espera, en este caso **true** que significa
-	que las credenciales de usuario son correctas.
+```
+Donde status hará referencia al estado de la petición HTTP y result traerá el resultado que se espera, en este caso **true** que significa
+que las credenciales de usuario son correctas.
 
-
-
-
+### Creación de registro de nueva persona
+Para crear un registro para una nueva persona deberá usar el path:
+```
+	api/persona/crear
+```
+Y agregar este cuerpo a la solicitud HTTP
+```json
+	{
+	  "codPersona": 6,
+	  "nomPersona": "Viviana González",
+	  "fecNacimiento": "1993-11-18",
+	  "codSector": 1,
+	  "codZona": 2,
+	  "sueldo": 650
+	}
+```
+El resultado enviado por el servidor será el siguiente 
+```json
+	{
+      "status": 200,
+	  "result": "Registro de persona creado correctamente"
+	}
+```
+Para la actualización de la información de una persona se usa el mismo json que se envia como cuerpo de la petición HTTP en la creación.
