@@ -24,6 +24,13 @@ A continuación se muestran los diferentes endpoints que existen en la API.
 | GET  | api/codigo/consultar | Obtiene el ID siguiente del registro de la persona | 
 | GET  | api/persona/listarPersonas | Obtiene la información de todas las personas registradas |
 | POST | api/persona/crear | Crea un nuevo registro de persona |
+| PUT  | api/persona/actualizar | Actualiza la información de una persona |
+| DELETE | api/persona/eliminar | Elimina el registro de una persona mediante el código de dicha persona |
+| POST | api/persona/consultarPersonaSueldo | Obtiene una lista de todas las personas con su sueldo respectivo mediante el codigo de zona |
+| GET  | api/sector/listar | Obtiene una lista de todos los sectores registrados |
+| POST | api/usuario/login | Envia las credenciales para la autenticación del usuario |
+| POST | api/zona/listarZonas | Obtiene una lista de las zonas por el código del sector |
+| GET  | api/zonasector/consultarZonaSector | Obtiene una lista de todos los sectores y el total de sueldos en dicho sector agrupados por zonas | 
 
 
 
