@@ -35,7 +35,9 @@ A continuación se muestran los diferentes endpoints que existen en la API.
 ## Ejemplos del uso de la API
 - Para iniciar sesión debe de usar el path:
 
-	```api/usuario/login```
+	```
+	api/usuario/login
+	```
 
 
 
