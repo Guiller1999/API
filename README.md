@@ -41,17 +41,17 @@ Para iniciar sesión debe de usar el path:
 ```
 Y agregar este cuerpo a la solicitud HTTP
 ```json
-	{
-	  "nomUsuario": "admin",
-	  "password": "123"
-	}
+{
+	"nomUsuario": "admin",
+	"password": "123"
+}
 ```
 El resultado enviado por el servidor será el siguiente 
 ```json
-	{
-		"status": 200,
-		"result": true
-	}
+{
+	"status": 200,
+	"result": true
+}
 ```
 Donde status hará referencia al estado de la petición HTTP y result traerá el resultado que se espera, en este caso **true** que significa
 que las credenciales de usuario son correctas.
@@ -63,20 +63,20 @@ Para crear un registro para una nueva persona deberá usar el path:
 ```
 Y agregar este cuerpo a la solicitud HTTP
 ```json
-	{
-	  "codPersona": 6,
-	  "nomPersona": "Viviana González",
-	  "fecNacimiento": "1993-11-18",
-	  "codSector": 1,
-	  "codZona": 2,
-	  "sueldo": 650
-	}
+{
+	"codPersona": 6,
+	"nomPersona": "Viviana González",
+	"fecNacimiento": "1993-11-18",
+	"codSector": 1,
+	"codZona": 2,
+	"sueldo": 650
+}
 ```
 El resultado enviado por el servidor será el siguiente 
 ```json
-	{
-		"status": 200,
-		"result": "Registro de persona creado correctamente"
-	}
+{
+	"status": 200,
+	"result": "Registro de persona creado correctamente"
+}
 ```
 Para la actualización de la información de una persona puede usar el mismo formato json que se uso para la creación de la persona.
