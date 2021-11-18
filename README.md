@@ -46,7 +46,7 @@ A continuación se muestran los diferentes endpoints que existen en la API.
 	}
 	```
 	El resultado enviado por el servidor será el siguiente 
-	````json
+	```json
 	{
       "status": 200,
 	  "result": true
