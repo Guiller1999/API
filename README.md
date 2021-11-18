@@ -49,8 +49,8 @@ Y agregar este cuerpo a la solicitud HTTP
 El resultado enviado por el servidor será el siguiente 
 ```json
 	{
-      "status": 200,
-	  "result": true
+		"status": 200,
+		"result": true
 	}
 ```
 Donde status hará referencia al estado de la petición HTTP y result traerá el resultado que se espera, en este caso **true** que significa
@@ -75,8 +75,8 @@ Y agregar este cuerpo a la solicitud HTTP
 El resultado enviado por el servidor será el siguiente 
 ```json
 	{
-      "status": 200,
-	  "result": "Registro de persona creado correctamente"
+		"status": 200,
+		"result": "Registro de persona creado correctamente"
 	}
 ```
-Para la actualización de la información de una persona se usa el mismo json que se envia como cuerpo de la petición HTTP en la creación.
+Para la actualización de la información de una persona puede usar el mismo formato json que se uso para la creación de la persona.
