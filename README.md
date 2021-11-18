@@ -11,4 +11,19 @@ Entity Framework para las entidades de la base de datos.
 	- Swashbuckle.AspNetCore.SwaggerUI
 
 # Sobre la API
-Esta API es la utilizada en la aplicación que se encuentra en el repositorio [PruebaReact](https://github.com/Guiller1999/PruebaReact)
+Esta API es la utilizada en la aplicación que se encuentra en el repositorio [PruebaReact](https://github.com/Guiller1999/PruebaReact), entre las funciones que tiene esta API estan la creación,
+actualización, consulta y eliminación de los diferentes registros de personas que tendrán su nombre, sueldo y que pertenecen a una zona y sector respectivo de la ciudad de Guayaquil. Así mismo
+ofrece la posibilidad de consultar las zonas y sectores que se encuentran almacenados en la base de datos.
+
+# Documentación
+A continuación se muestran los diferentes endpoints que existen en la API.
+
+## Endpoints
+| Verb | Path | Action|
+|------|------|-------|
+
+
+
+
+
+
