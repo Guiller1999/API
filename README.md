@@ -129,3 +129,32 @@ El resultado enviado por el servidor será el siguiente
 	]
 }
 ```
+### Consulta de zonas por sector
+Para consultar las zonas que hay registradas deberá de usar el path:
+```
+	api/zona/listarZonas
+```
+Y agregar este cuerpo a la solicitud HTTP
+```json
+{
+	"codSector": 1
+}
+```
+El resultado enviado por el servidor será el siguiente 
+```json
+{
+	"status": 200,
+	"result": [
+		{
+			"codZona": 1,
+			"desZona": "Alborada",
+			"codSector": 1
+		},
+		{
+			"codZona": 2,
+			"desZona": "Sauces",
+			"codSector": 1
+		}
+	]
+}
+```
