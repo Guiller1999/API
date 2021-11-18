@@ -80,3 +80,22 @@ El resultado enviado por el servidor será el siguiente
 }
 ```
 Para la actualización de la información de una persona puede usar el mismo formato json que se uso para la creación de la persona.
+
+### Eliminación del registro de una persona
+Para eliminar el registro en base de datos de una persona deberá usar el path:
+```
+	api/persona/eliminar
+```
+Y agregar este cuerpo a la solicitud HTTP
+```json
+{
+	"codPersona": 6
+}
+```
+El resultado enviado por el servidor será el siguiente 
+```json
+{
+	"status": 200,
+	"result": "Se ha eliminado el registro correctamente"
+}
+```
