@@ -1,4 +1,5 @@
 ﻿using API.Services;
+using API.Models.Response;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -19,8 +20,8 @@ namespace API.Controllers
             _usuario = usuario ?? throw new ArgumentNullException(nameof(usuario));
         }
 
-        [HttpPost]
-        public bool Post([FromBody] Models.Request.UsuarioRequest model)
+        [HttpPost("login")]
+        public ActionResult Post([FromBody] Models.Request.UsuarioRequest model)
         {
             /*using (Models.DB_Sector_ZonaContext db = new Models.DB_Sector_ZonaContext())
             {
@@ -33,9 +34,22 @@ namespace API.Controllers
             var result = _usuario.GetUsuario(model);
 
             if (result > 0)
-                return true;
-            else
-                return false;
+            {
+                return Ok(new ObjResult<bool>
+                {
+                    Status = StatusCodes.Status200OK,
+                    Result = true
+                }
+                );
+            }
+            else 
+            { 
+                return BadRequest(new ObjResult<bool> 
+                { 
+                    Status = StatusCodes.Status400BadRequest,
+                    Result = false
+                });
+            }
         }
     }
 }

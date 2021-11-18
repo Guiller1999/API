@@ -1,10 +1,12 @@
 ﻿using API.Services;
+using API.Models.Response;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Collections;
 
 namespace API.Controllers
 {
@@ -19,7 +21,7 @@ namespace API.Controllers
             _sectorZona = sectorZona ?? throw new ArgumentNullException(nameof(sectorZona));
         }
 
-        [HttpGet]
+        [HttpGet("consultarZonaSector")]
         public ActionResult Get()
         {
             /*using(Models.DB_Sector_ZonaContext db = new Models.DB_Sector_ZonaContext())
@@ -47,29 +49,10 @@ namespace API.Controllers
             }*/
 
             var lst = _sectorZona.GetSueldoXZonas();
-            return Ok(lst);
-        }
-
-        [HttpPost]
-        public ActionResult Post([FromBody] Models.Request.ZonaRequest model)
-        {
-            /*using (Models.DB_Sector_ZonaContext db = new Models.DB_Sector_ZonaContext())
-            {
-                DateTime fechaActual = DateTime.Now;
-
-                var lst = db.TblPersonas.Where(p => p.CodZona == model.CodZona &&
-                          fechaActual.Year - p.FecNacimiento.Year < 65)
-                          .Select(persona => new
-                          {
-                              CodPersona = persona.CodPersona,
-                              NomPersona = persona.NomPersona,
-                              Sueldo = persona.Sueldo
-                          }).ToList();
-
-                return Ok(lst);
-            }*/
-            var lst = _sectorZona.GetSueldoXPersona(model);
-            return Ok(lst);
+            return Ok(new ObjResult<IEnumerable> { 
+                Status = StatusCodes.Status200OK,
+                Result = lst
+            });
         }
     }
 }

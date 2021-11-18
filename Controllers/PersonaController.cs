@@ -1,10 +1,13 @@
 ﻿using API.Services;
+using API.Models.Response;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Collections;
 
 namespace API.Controllers
 {
@@ -13,13 +16,15 @@ namespace API.Controllers
     public class PersonaController : ControllerBase
     {
         private readonly IPersonaRepositorio _personaRepositorio;
+        private readonly ISectorZona _sectorZona;
 
-        public PersonaController(IPersonaRepositorio personaRepositorio)
+        public PersonaController(IPersonaRepositorio personaRepositorio, ISectorZona sectorZona)
         {
             _personaRepositorio = personaRepositorio ?? throw new ArgumentNullException(nameof(personaRepositorio));
+            _sectorZona = sectorZona ?? throw new ArgumentNullException(nameof(sectorZona));
         }
         
-        [HttpGet]
+        [HttpGet("listarPersonas")]
         public ActionResult Get()
         {
             /*using (Models.DB_Sector_ZonaContext db = new Models.DB_Sector_ZonaContext()) {
@@ -32,36 +37,101 @@ namespace API.Controllers
                            zona.DesZona, p.Sueldo }).ToList();
             }*/
             var lst = _personaRepositorio.GetPersonas();
-            return Ok(lst);
+            return Ok(new ObjResult<IEnumerable>
+            {
+                Status = StatusCodes.Status200OK,
+                Result = lst
+            });
         }
 
-        [HttpPost]
-        public bool Post([FromBody] Models.Request.PersonaRequest model)
-        {            
-            return _personaRepositorio.CrearPersona(model);
+        [HttpPost("crear")]
+        public ActionResult Post([FromBody] Models.Request.PersonaRequest model)
+        {   
+            var result = _personaRepositorio.CrearPersona(model);
+
+            if(result)
+            {
+                return Ok(new ObjResult<String>
+                {
+                    Status = StatusCodes.Status200OK,
+                    Result = "Registro de persona creado correctamente"
+                });
+            }
+            else
+            {
+                return BadRequest(new ObjResult<String>
+                {
+                    Status = StatusCodes.Status400BadRequest,
+                    Result = "Error. No se pudo crear el registro de la persona"
+                });
+            }
         }
 
-        [HttpPut]
+        [HttpPut("actualizar")]
         public ActionResult Put([FromBody] Models.Request.PersonaRequest model)
         {
             var result = _personaRepositorio.ActualizarDatos(model);
 
             if (result)
-                return Ok();
+            {
+                return Ok(new ObjResult<String> { 
+                    Status = StatusCodes.Status200OK,
+                    Result = "Registro actualizado correctamente"
+                });
+            }
             else
-                return BadRequest();
+            {
+                return BadRequest(new ObjResult<String> { 
+                    Status = StatusCodes.Status400BadRequest,
+                    Result = "Error, no se ha podido actualizar el registro"
+                });
+            }
         }
 
-        [HttpDelete]
+        [HttpDelete("eliminar")]
         public ActionResult Delete([FromBody] Models.Request.PersonaRequest model)
         {
-            
             var result = _personaRepositorio.EliminarDatos(model);
 
-            if(result)
-                return Ok();
+            if (result)
+            {
+                return Ok(new ObjResult<String> { 
+                    Status = StatusCodes.Status200OK,
+                    Result = "Se ha eliminado el registro correctamente"
+                });
+            }
             else
-                return BadRequest();
+            {
+                return BadRequest(new ObjResult<String> { 
+                    Status = StatusCodes.Status400BadRequest,
+                    Result = "Error, no se ha podido eliminar el registro"
+                });
+            }
+        }
+
+        [HttpPost("consultarPersonaSueldo")]
+        public ActionResult Post([FromBody] Models.Request.ZonaRequest model)
+        {
+            /*using (Models.DB_Sector_ZonaContext db = new Models.DB_Sector_ZonaContext())
+            {
+                DateTime fechaActual = DateTime.Now;
+
+                var lst = db.TblPersonas.Where(p => p.CodZona == model.CodZona &&
+                          fechaActual.Year - p.FecNacimiento.Year < 65)
+                          .Select(persona => new
+                          {
+                              CodPersona = persona.CodPersona,
+                              NomPersona = persona.NomPersona,
+                              Sueldo = persona.Sueldo
+                          }).ToList();
+
+                return Ok(lst);
+            }*/
+            var lst = _sectorZona.GetSueldoXPersona(model);
+            return Ok(new ObjResult<IEnumerable> { 
+                Status = StatusCodes.Status200OK,
+                Result = lst
+            });
         }
     }
 }

@@ -1,10 +1,12 @@
 ﻿using API.Services;
+using API.Models.Response;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Collections;
 
 namespace API.Controllers
 {
@@ -19,7 +21,7 @@ namespace API.Controllers
             _sectorZona = sectorZona ?? throw new ArgumentNullException(nameof(sectorZona));
         }
 
-        [HttpPost]
+        [HttpPost("listarZonas")]
         public ActionResult Post([FromBody] Models.Request.ZonaRequest model)
         {
             /*using (Models.DB_Sector_ZonaContext db = new Models.DB_Sector_ZonaContext())
@@ -32,7 +34,10 @@ namespace API.Controllers
 
             }*/
             var zonas = _sectorZona.GetZonas(model);
-            return Ok(zonas);
+            return Ok(new ObjResult<IEnumerable> { 
+                Status = StatusCodes.Status200OK,
+                Result = zonas
+            });
         }
     }
 }
