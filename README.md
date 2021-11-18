@@ -116,16 +116,16 @@ El resultado enviado por el servidor será el siguiente
 {
 	"status": 200,
 	"result": [
-      {
-		"codPersona": 3,
-		"nomPersona": "Guillermo Rivera",
-		"sueldo": 500
-      },
-	  {
-		"codPersona": 4,
-		"nomPersona": "Carlos Alcívar",
-		"sueldo": 560
-	  }
+		{
+			"codPersona": 3,
+			"nomPersona": "Guillermo Rivera",
+			"sueldo": 500
+		},
+		{
+			"codPersona": 4,
+			"nomPersona": "Carlos Alcívar",
+			"sueldo": 560
+		}
 	]
 }
 ```
