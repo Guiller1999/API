@@ -45,7 +45,15 @@ A continuación se muestran los diferentes endpoints que existen en la API.
 	  "password": "123"
 	}
 	```
-
+	El resultado enviado por el servidor será el siguiente 
+	````json
+	{
+      "status": 200,
+	  "result": true
+	}
+	```
+	Donde status hará referencia al estado de la petición HTTP y result traerá el resultado que se espera, en este caso **true que significa
+	que las credenciales de usuario son correctas.
 
 
 
