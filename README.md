@@ -41,8 +41,8 @@ A continuación se muestran los diferentes endpoints que existen en la API.
 	Y agregar este cuerpo a la soilictud HTTP
 	```json
 	{
-		"nomUsuario": "admin",
-		"password": "123"
+	  "nomUsuario": "admin",
+	  "password": "123"
 	}
 	```
 
