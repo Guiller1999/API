@@ -11,3 +11,4 @@ Entity Framework para las entidades de la base de datos.
 	- Swashbuckle.AspNetCore.SwaggerUI
 
 # Sobre la API
+Esta API es la utilizada en la aplicación que se encuentra en el repositorio [PruebaReact](https://github.com/Guiller1999/PruebaReact)
